@@ -50,7 +50,7 @@
   </div>
   <span class="bestsellers">Best combos</span>
   <div class="row" *ngFor="let combo of topCombo">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of combo">
+    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of combo">
       <app-cartitem name="cartItem" [shop]="item"></app-cartitem>
     </div>
   </div>
