@@ -1,0 +1,58 @@
+.cent_search {
+  padding: 20px;
+}
+
+.inline_btn {
+  margin-left: 1%;
+}
+
+.divider_panel {
+  border-bottom-color: aliceblue;
+  border-bottom-width: 0.8px;
+  border-bottom: solid;
+  width: 90vw;
+  margin-left: 5vw;
+}
+
+.divider_info {
+  margin-left: 5%;
+  font-size: 18px;
+  color: floralwhite;
+}
+
+.menu-panel {
+  z-index: 500;
+  position: fixed;
+  background-color: black;
+  padding-top: 1vh;
+}
+.all-panel {
+  position: relative;
+  top: 15vh;
+}
+.main-panel {
+  z-index: 100;
+}
+.cart-panel {
+  z-index: 600;
+}
+.status-panel {
+  z-index: 900;
+}
+.item-price {
+  font-size: 30px;
+  font-weight: bold;
+  color: aquamarine;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  text-shadow: 1px 1px 2px black, 0 0;
+}
+.total-sum {
+  font-size: 35px;
+}
+
+.bestsellers{
+  font-size: 40px;
+  color: royalblue;
+}

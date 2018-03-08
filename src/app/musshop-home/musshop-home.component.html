@@ -1,0 +1,57 @@
+<div class="menu-panel">
+  <div class="title_name">
+    <span class="divider_info">{{title}}</span>
+    <button class="btn btn-md btn-primary offset-2" type="submit" name="action"
+            (click)="changePanel('Products by popularity')">
+      <i class="fa fa-home"></i>
+    </button>
+    <button class="btn btn-md btn-primary offset-1" type="submit" name="action" (click)="changePanel('Checkout')">
+      <i class="fa fa-check-circle"></i>
+    </button>
+    <button class="btn btn-md btn-primary offset-1" type="submit" name="action" (click)="changePanel('Status')">
+      <i class="fa fa-list-alt"></i>
+    </button>
+  </div>
+  <div class="divider_panel">
+    <span class="divider_info">{{panel}}</span>
+  </div>
+</div>
+<div class="container all-panel main-panel" *ngIf="panel === 'Products by popularity'">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let i of items">
+      <app-musshop-items name="item" [shop]="i" (sendMsgEvent)="addToCart($event)"></app-musshop-items>
+    </div>
+  </div>
+</div>
+<div class="container all-panel cart-panel" *ngIf="panel === 'Checkout'">
+  <form ngNativeValidate #buyForm="ngForm" (ngSubmit)="onFormSubmit(buyForm)">
+    <div class="col-5 cent_search input-group">
+      <button class="btn btn-sm btn-primary inline_btn" type="submit" name="action">
+        <i class="fa fa-credit-card"></i>
+      </button>
+      <input type="email" name="emailVal" required class="form-control-sm validate inline_btn
+                col-lg-7 col-md-7 col-sm-8 col-xs-12 "
+             [(ngModel)]="email" placeholder="email">
+      <div class="item-price offset-2">{{totalsum}}</div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let i of userCart">
+      <app-cartitem name="cartItem" [shop]="i"></app-cartitem>
+    </div>
+  </div>
+</div>
+<div class="container all-panel main-panel" *ngIf="panel === 'Status'">
+  <span class="bestsellers">Best sellers</span>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let i of topBest">
+      <app-cartitem name="cartItem" [shop]="i"></app-cartitem>
+    </div>
+  </div>
+  <span class="bestsellers">Best combos</span>
+  <div class="row" *ngFor="let combo of topCombo">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of combo">
+      <app-cartitem name="cartItem" [shop]="item"></app-cartitem>
+    </div>
+  </div>
+</div>
